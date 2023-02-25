@@ -5,8 +5,8 @@ import '../modules/home/views/home_view.dart';
 
 part 'app_routes.dart';
 
-class AppPages {
-  AppPages._();
+class App {
+  App._();
 
   static const INITIAL = Routes.HOME;
 
