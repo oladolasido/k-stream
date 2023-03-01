@@ -1,9 +1,12 @@
 import 'package:get/get.dart';
+import 'package:kstream/app/repositories/home_repository.dart';
+import 'package:kstream/models/film_model.dart';
+import 'package:kstream/utils/custom_log.dart';
 
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
+  Rx<FilmModel> filmModel = FilmModel().obs;
+  RxBool isLoading = false.obs;
 
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
@@ -19,5 +22,13 @@ class HomeController extends GetxController {
     super.onClose();
   }
 
-  void increment() => count.value++;
+  void films() async {
+    try {
+      isLoading.value = true;
+      filmModel.value = await HomeRepository().getFilms();
+      isLoading.value = false;
+    } catch (error) {
+      logInfo(error.toString());
+    }
+  }
 }

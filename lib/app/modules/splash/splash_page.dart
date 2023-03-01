@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kstream/app/modules/home/views/home_view.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -12,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Future.delayed(Duration(seconds: 3), () {
       // Navigasi ke layar utama aplikasi setelah 3 detik
-      Get.offNamed('/home');
+      Get.off(() => HomeView(), transition: Transition.fadeIn);
     });
   }
 

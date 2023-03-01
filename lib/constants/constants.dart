@@ -1,1 +1,2 @@
-const String kBaseUrl = 'https://api.themoviedb.org/3';
+const String kBaseUrl = 'https://serialdrama.lapanna.co.id/api';
+const String mediaUrl = 'https://serialdrama.lapanna.co.id/public/poster/';

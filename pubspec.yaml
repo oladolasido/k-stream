@@ -10,6 +10,7 @@ dependencies:
   dio: ^5.0.1
   flutter:
     sdk: flutter
+  flutter_inappwebview: ^5.7.2+3
   get: 4.6.5
   google_fonts: ^4.0.3
   logger: ^1.2.2
