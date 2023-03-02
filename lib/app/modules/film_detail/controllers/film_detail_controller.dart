@@ -1,9 +1,15 @@
+import 'package:chewie/chewie.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:video_player/video_player.dart';
 
 class FilmDetailController extends GetxController {
   //TODO: Implement FilmDetailController
 
-  final count = 0.obs;
+  Rx<VideoPlayerController> videoPlayerController =
+      VideoPlayerController.network('').obs;
+
   @override
   void onInit() {
     super.onInit();
@@ -19,5 +25,7 @@ class FilmDetailController extends GetxController {
     super.onClose();
   }
 
-  void increment() => count.value++;
+  void updateLink(String url) {
+    videoPlayerController.value = VideoPlayerController.network(url);
+  }
 }

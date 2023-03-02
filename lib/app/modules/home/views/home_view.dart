@@ -32,20 +32,16 @@ class HomeView extends StatelessWidget {
         dispose: (_) {},
         builder: (_) {
           return Container(
-            padding: const EdgeInsets.all(16),
-            child: ListView.builder(
-              shrinkWrap: true,
-              physics: const BouncingScrollPhysics(),
-              itemCount: 1,
-              itemBuilder: (context, index) => Obx(() =>
-                  controller.isLoading.value
-                      ? Center(
-                          child: CircularProgressIndicator(),
-                        )
-                      : Obx(() =>
-                          CardDrakor(controller.filmModel.value.data![index]))),
-            ),
-          );
+              padding: const EdgeInsets.all(16),
+              child: Obx(() => controller.isLoading.value
+                  ? const Center(child: CircularProgressIndicator())
+                  : ListView.builder(
+                      itemCount: controller.filmModel.value.data?.length ?? 0,
+                      itemBuilder: (context, index) {
+                        return CardDrakor(
+                            controller.filmModel.value.data![index]);
+                      },
+                    )));
         },
       ),
     );
